@@ -42,12 +42,41 @@ namespace Sandbox
             //    Console.WriteLine(my2Array[x]);
             //}
 
-            exercise_b();
+            //exercise_b();
             //exercise_c();
-            exersice_D();
-
-            Console.WriteLine("Hello world!");
+            //exersice_D();
+            //exersice_E();
+            //FancyTriangle(20, 20);
             // The LAST line of code should be ABOVE this line
+            //int detSigerBangBang = 12; // watch out with setting this to a high number :^)))
+            //for (int i = 1; i < detSigerBangBang; i++)
+            //{
+            //    FancyTriangle(Fibonacci(i), Fibonacci(i - 1));
+            //}
+        }
+        private int Fibonacci(int Length)
+        {
+            int arraySize = Length + 2;
+            int[] numberList = new int[arraySize];
+
+
+
+            numberList[0] = 0;
+            numberList[1] = 1;
+
+
+
+            for (int index = 2; index < arraySize; index++)
+            {
+                numberList[index] = numberList[index - 1] + numberList[index - 2];
+            }
+
+
+
+            return numberList[arraySize - 1];
+
+
+
         }
 
 
@@ -93,6 +122,67 @@ namespace Sandbox
                 Console.WriteLine("Value stored in numberList[" + index + "]" + " is " + numberList[index]);
             }
 
+        }
+
+        private void exersice_E()
+        {
+            int[] intArray = new int[20];
+
+            //intArray[0] = 0 * 0;
+            //intArray[1] = 1 * 1;
+
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                intArray[i] = i * i;
+            }
+
+            //print tallene ud
+            foreach (int v in intArray)
+            {
+                Console.WriteLine(v);
+            }
+        }
+
+        private void exersice_F()
+        {
+            int[,] smallTable = new int[11, 11];   // a two-dimensional array!!
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    smallTable[i, j] = i * j;
+                }
+            }
+
+            for (int i = 1; i <= 10; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.WriteLine(i + " x " + j + " = " + smallTable[i, j]);
+                }
+            }
+
+        }
+
+        private void FancyTriangle(int Width, int Height)
+        {
+            Width = Width <= 0 ? 1 : Width;
+            Height = Height <= 0 ? 1 : Height;
+            int iteration = 0;
+
+            while (iteration < Height + 1)
+            {
+                for (int spaces = iteration; spaces > 0; spaces--)
+                {
+                    Console.Write(" ");
+                }
+                for (int w = (Width - iteration); w > 0; w--)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine(" ");
+                iteration++;
+            }
         }
     }
 }
