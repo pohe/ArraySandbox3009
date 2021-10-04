@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Security.AccessControl;
 
 namespace Sandbox
 {
@@ -7,27 +9,89 @@ namespace Sandbox
         public void MyCode()
         {
             // The FIRST line of code should be BELOW this line
-            //int[] myArray = new int[7];
-            //myArray[0] = 10;
-            //myArray[1] = 3;
-            //myArray[2] = myArray[0] + 5;
-            //myArray[3] = 6;
-            //myArray[4] = 8;
-            //myArray[5] = 7;
-            //myArray[6] = 17;
+            int[] myArray = new int[7];
+            myArray[0] = 10;
+            myArray[1] = 3;
+            myArray[2] = myArray[0] + 5;
+            myArray[3] = 6;
+            myArray[4] = 8;
+            myArray[5] = 7;
+            myArray[6] = 17;
             //myArray[7] = 0;
 
-            //int x = 0;
-            //while (x < myArray.Length)
+            int searchInt = 18;
+            // Søge efter tallet
+
+            //foreach (int s in myArray)
             //{
-            //    Console.WriteLine( myArray[x] );
-            //    x++;
+            //    if (s == searchInt)
+            //    {
+            //        Console.WriteLine(s); 
+            //    }
             //}
 
-            //foreach (int v in myArray)
+            int i = 0;
+            bool found = false;
+            //while (i < myArray.Length && !found )
             //{
-            //    Console.WriteLine(v);
+            //    if (myArray[i] == searchInt)
+            //    {
+            //        found = true;
+            //    }
+            //    else
+            //    {
+            //        i++;
+            //    }
             //}
+            int index = -1;
+            for (int j =0; j<myArray.Length && !found; j++)
+            {
+                if (myArray[j] == searchInt)
+                {
+                    index = j;
+                    found = true;
+                }
+            }
+            // Udskrive om det findes
+            if (found)
+            {
+                Console.WriteLine($"På indeks {index} findes {myArray[index]}");
+            }
+            else
+            {
+                Console.WriteLine("Elementet findes ikke");
+            }
+
+
+            int x = 0;
+            while (x < myArray.Length)
+            {
+                Console.WriteLine(myArray[x]);
+                x++;
+            }
+
+            for(int y=0; y < myArray.Length; y++  )
+            {
+                Console.WriteLine(myArray[y]);
+            }
+
+            foreach (int v in myArray)
+            {
+                Console.WriteLine(v);
+            }
+
+
+
+            string[] names = new string[5];
+            names[0] = "Emil";
+            names[1] = "Patrick";
+            names[2] = "Mikkel";
+            names[3] = "Hannibal";
+            names[4] = "Serhiy";
+
+            string[] names2 = new[] {"Emil", "Patrick", "Mikkel"};
+
+
 
             //int[] my2Array = new[] {3, 5, 12, 6, 8, 5, 7};
             //my2Array[3]++;
