@@ -9,6 +9,56 @@ namespace Sandbox
         public void MyCode()
         {
             // The FIRST line of code should be BELOW this line
+
+            Book aBook = new Book("C# programming", "1212132", "John Sharp");
+
+
+            Book[] bookArray = new Book[5];
+            bookArray[0] = aBook;
+            bookArray[1] = new Book("Scrum book", "121331", "Peter Scrum");
+            bookArray[2] = new Book("Python book", "45646", "Anne Python");
+            bookArray[3] = new Book("Pascal book", "4567", "John Pascal");
+            bookArray[4] = new Book("The Universe book", "8989", "Signe Universe");
+
+            bookArray[1].Titel = "1001 nats eventyr";
+
+            for (int d = 0; d < bookArray.Length; d++)
+            {
+                bookArray[d].PrintInfo();
+            }
+
+            foreach (Book book in bookArray)
+            {
+                Console.WriteLine(book );
+            }
+
+
+            string searchAuthor = "Pascal";
+            int counter = 0;
+            bool authorFound = false;
+            while (counter < bookArray.Length && !authorFound)
+            {
+                if (bookArray[counter].Author.Contains(searchAuthor) )
+                {
+                    authorFound = true;
+                }
+                else
+                {
+                    counter++;
+                }
+            }
+
+            //udskrive resultat af søgningen
+            if (authorFound)
+            {
+                Console.WriteLine($"Der er fundet forfatteren {bookArray[counter].Author }  på plads {counter} i bookArray");
+            }
+            else
+            {
+                Console.WriteLine("Bogen findes ikke");
+            }
+
+
             int[] myArray = new int[7];
             myArray[0] = 10;
             myArray[1] = 3;
